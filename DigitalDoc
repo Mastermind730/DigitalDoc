@@ -1,0 +1,30 @@
+import wikipedia
+
+print('Hello, This is our digital Docter which will help you in getting information on any disease')
+try:
+    disease=input('Enter the disease:')
+    result=wikipedia.search(disease)
+    print(result)
+
+    for search in result:
+        print(search)
+        print(wikipedia.page(search).summary)
+
+    ques=input('Do you want to know about any other disease(yes/no):')
+    if ques=='yes':
+        disease = input('Enter the disease:')
+        result = wikipedia.search(disease)
+        print(result)
+
+        for search in result:
+            print(search)
+            print(wikipedia.page(search).summary)
+        print('THANKS,we hope you like our service ')
+    else:
+         print('Ok I hope that you like our service')
+except wikipedia.exceptions.PageError as E:
+    print('wrong input and hence error')
+
+
+
+
